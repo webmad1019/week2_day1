@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reduce</title>
+</head>
+
+<body>
+    <script>
+
+        // .map(), .filter() y .reduce() no modifican el array original
+        // .reduce() obtiene un valor resultante de iterar sobre el array original, haciendo en cada iteración uso del acumulador y del valor actual iterado 
+        // El valor inicial por defecto del acumulador es la primera posición del array, excepto si se indica un segundo argumento (opcional) que sería tomado como valor inicial para el acumulador
+        // La función pasada como argumento siempre debe retornar un valor, que será el acumulador para la siguiente iteración
+
+
+
+
+
+
+
+
+
+        const numbers = [2, 4, 7, 8]
+
+        /*
+        const accNumbers = numbers.reduce((acc, elm) => {
+            console.log('El valor del acumulador es', acc)
+            console.log('El valor actual es', elm)
+            console.log('-------')
+            return acc + elm
+        })
+        */
+
+        const accNumbers = numbers.reduce((acc, elm) => acc + elm)
+        console.log('Números acumulados:\n', accNumbers)
+
+
+
+
+        /*
+        const accNumbersFrom10 = numbers.reduce((acc, elm) =>{ 
+            return acc + elm
+        }, 10) // Ojo! Segundo argumento yay
+        */
+
+
+        const accNumbersFrom10 = numbers.reduce((acc, elm) => acc + elm, 10)
+        console.log('Números acumulados desde 10:\n', accNumbersFrom10)
+
+
+        const letters = ['f', 'e', 'r', 'n', 'a', 'n', 'd', 'o']
+        const name = letters.reduce((acc, elm) => acc + elm)
+        console.log('El nombre concatenado es:\n', name)
+
+
+
+
+        const people = [
+            { name: "Candice", age: 25 },
+            { name: "Tammy", age: 30 },
+            { name: "Allen", age: 49 },
+            { name: "Nettie", age: 21 },
+            { name: "Stuart", age: 17 }
+        ]
+
+        const ages = people.reduce((acc, elm) => {
+            return acc + elm.age
+        }, 0)
+
+        console.log('El sumatorio de edades es:\n', ages)
+
+
+
+    </script>
+</body>
+
+</html>

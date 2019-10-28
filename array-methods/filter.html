@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter</title>
+</head>
+
+<body>
+    <script>
+
+        // .map(), .filter() y .reduce() no modifican el array original
+        // Filter crea un nuevo array compuesto por aquellas posiciones del array original cuya función de argumento retorne un valor truthy
+        // El array resultante puede tener una longitud máxima igual a la longitud total del array original
+        // La función pasada como argumento a .filter() siempre debe retornar un valor boleano, que permitirá que el dato figure (o no) en el array resultante
+
+
+        const numbers = [1, 2, 3, 4, 5, 6]
+        const evenNumbers = numbers.filter(elm => elm % 2 === 0)
+
+        console.log('Los números pares son:\n', evenNumbers)
+
+
+
+
+        const places = [
+            {
+                title: "Awesome Suite 20' away from la Rambla",
+                price: 200,
+                type: "Private Room",
+                pool: true,
+                garage: false
+            },
+            {
+                title: "Private apartment",
+                price: 190,
+                type: "Entire Place",
+                pool: true,
+                garage: true
+            },
+            {
+                title: "Apartment with awesome views",
+                price: 400,
+                type: "Entire Place",
+                pool: false,
+                garage: false
+            },
+            {
+                title: "Apartment in la Rambla",
+                price: 150,
+                type: "Private Room",
+                pool: false,
+                garage: true
+            },
+            {
+                title: "Comfortable place in Barcelona´s center",
+                price: 390,
+                type: "Entire place",
+                pool: true,
+                garage: true
+            },
+            {
+                title: "Room near Sagrada Familia",
+                price: 170,
+                type: "Private Room",
+                pool: false,
+                garage: false
+            },
+            {
+                title: "Great house next to Camp Nou",
+                price: 140,
+                type: "Entire place",
+                pool: true,
+                garage: true
+            },
+            {
+                title: "New apartment with 2 beds",
+                price: 2000,
+                type: "Entire place",
+                pool: false,
+                garage: true
+            },
+            {
+                title: "Awesome Suite",
+                price: 230,
+                type: "Private Room",
+                pool: false,
+                garage: false
+            },
+            {
+                title: "Apartment 10' from la Rambla",
+                price: 930,
+                type: "Entire place",
+                pool: true,
+                garage: true
+            }
+        ]
+
+
+        const hasPool = places.filter(elm => elm.pool)
+        console.log('Las casas con piscina son:\n', hasPool)
+
+        const noPool = places.filter(elm => !elm.pool)
+        console.log('Las casas SIN piscina son:\n', noPool)
+
+        const cheapOnes = places.filter(elm => elm.price < 500)
+        console.log('Los baratos son: \n', cheapOnes)
+
+        const cheapOnesWithGarage = places.filter(elm => elm.garage && elm.price < 500)
+        console.log('Los baratos con garaje son:\n', cheapOnesWithGarage)
+
+        // Podemos concatenar diversos métodos de arrays
+        const avgPriceWithPool = places.filter(elm => elm.pool).reduce((acc, elm) => acc + elm.price, 0)
+        console.log('El precio medio de los que tienen piscina es:\n', avgPriceWithPool / hasPool.length)
+
+
+    </script>
+</body>
+
+</html>

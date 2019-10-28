@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sort</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+
+            .sort() y .reverse() SÍ MUTAN EL ARRAY ORIGINAL. 
+            Si deseas respetar el array original, SACA UNA COPIA 
+
+        */
+
+
+        const numbers1 = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18]
+
+        numbers1.sort()
+
+        console.log('La ordenación por defecto de sort() es:\n', numbers1)
+
+
+
+
+
+
+        const numbers2 = [100, 100, 90, 80, 70]
+
+        numbers2.sort((a, b) => {
+            console.log('----- nueva iteración ------')
+            console.log('Primer valor:', a, 'Segundo valor:', b)
+            const result = a - b
+            if (result > 0) console.log('El resultado de restar', a, '-', b, 'es positivo (', result, '): INTERCAMBIA ORDEN DE VALORES')
+            if (result < 0) console.log('El resultado de restar', a, '-', b, 'es negativo (', result, '): INTERCAMBIA ORDEN DE VALORES')
+            if (result === 0) console.log('El resultado de restar', a, '-', b, 'es equivalente (', result, '): MANTIENE ORDEN DE VALORES')
+            return result
+        })
+
+
+        console.log('La ordenación argumentando una función de comparación creciente sería:\n', numbers2)
+
+
+
+
+
+
+        const numbers3 = [100, 100, 90, 80, 70]
+
+        numbers3.sort((a, b) => b - a)
+
+        console.log('La ordenación argumentando una función de comparación decreciente sería:\n', numbers3)
+
+
+
+
+
+        const numbers4 = [22, 23, 99, 68, 1, 0, 9, 112, 223, 64, 18]
+        const arrayCopy = [...numbers4]     // Saca una copia de un Array para manipularla garantizando la inmutabilidad del original
+
+        arrayCopy.sort()
+
+        console.log('El array original permanece inmutable:\n', numbers4)
+        console.log('La copia sí ha mutado:\n', arrayCopy)
+
+
+
+    </script>
+</body>
+
+</html>

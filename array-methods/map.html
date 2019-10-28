@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        // .map(), .filter() y .reduce() no modifican el array original
+        // .map() crea un nuevo array con los retornos fruto de la iteración del original, siendo el resultante de la misma longitud que el original
+        // La función pasada como argumento a .map() siempre debe retornar un valor
+
+        const numbers = [1, 3, 4, 5]
+
+
+
+        /*
+        const doubledNumbers = numbers.map(elm => {
+            return elm * 2
+        })
+        */
+
+
+        // Las arrow functions de una única instrucción con retorno no requieren ni bloque ni 'return'
+        const doubledNumbers = numbers.map(elm => elm * 2)
+        console.log('Números duplicados:\n', doubledNumbers)
+
+
+
+
+        const drinks = ['Coca-cola', 'Fanta', 'Cacaolat']
+        const upperDrinks = drinks.map(elm => elm.toUpperCase())
+        console.log('Bebidas en mayúscula:\n', upperDrinks)
+
+
+
+        const names = ['fernando', 'germán', 'lucía', 'alex']
+
+        const capitalizedNames = names.map(elm => {
+            const firstLetter = elm.charAt(0).toUpperCase()
+            const rest = elm.substr(1)
+            return firstLetter + rest
+        })
+        // const capitalizedNames = names.map(elm => elm.charAt(0).toUpperCase() + elm.substr(1, elm.length))
+        console.log('Nombres capitalizados:\n', capitalizedNames)
+
+
+
+
+
+        const students = [
+            {
+                name: "Tony Parker",
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: "Marc Barchini",
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: "Claudia Lopez",
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            },
+            {
+                name: "Alvaro Briattore",
+                firstProject: 82,
+                secondProject: 92,
+                finalExam: 70
+            }
+        ]
+
+        const newStudents = students.map(elm => {
+            const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+            const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+            return {
+                ...elm,     // El operador de propagación (spread operator) crea copias de objetos
+                finalGrade: Math.round(finalGrade)
+            }
+        })
+
+        console.log('Nuevos alumnos:\n', newStudents)
+
+
+
+
+
+
+
+
+        // ejemplo map() - calcula precio final
+        const drinks2 = [
+            {
+                id: 1,
+                name: "Coca-cola",
+                cost: .85
+            },
+            {
+                id: 2,
+                name: "Fanta",
+                cost: .81
+            },
+            {
+                id: 3,
+                name: "Cacaolat",
+                cost: .62
+            }
+        ]
+
+        const finalPriceDrinks = drinks2.map(drink => {
+            const profit = 1.6											// % beneficio 
+            const taxRate = .21											// % impuesto
+            const subtotalDrinkPrice = drink.cost * profit
+            const totalDrinkTax = subtotalDrinkPrice * taxRate
+            const totalDrinkPrice = subtotalDrinkPrice + totalDrinkTax
+            const output = {
+                ...drink,												// El operador de propagación realiza una copia del objeto
+                subtotal: subtotalDrinkPrice,							// además de las nuevas propiedades por cada bebida
+                tax: totalDrinkTax,
+                price: totalDrinkPrice.toFixed(2)						// El operador + convierte a tipo numérico (ya que toFixed() retorna tipo sting)
+            }
+            return output
+        })
+
+        console.log("Precios finales:\n", finalPriceDrinks)
+
+
+
+
+
+
+
+
+        // ejemplo map() - lógica que valora las bebidas más costosas
+        const expensiveDrinks = drinks2.map(drink => {
+            if (drink.cost > .7) {
+                return { ...drink, expensive: true }
+            }
+            else {
+                return { ...drink, expensive: false }
+            }
+        })
+
+        console.log("Bebidas costosas:\n", expensiveDrinks)
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

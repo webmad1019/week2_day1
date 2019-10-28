@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data structures</title>
+</head>
+
+<body>
+
+    <ul>
+
+    </ul>
+
+    <script>
+
+        /*
+        const array2d = [
+            [10, 12, 16],
+            [22, 11, 11],
+            [13, 21, 17]
+        ]
+
+        console.log('Array completo:', array2d)
+
+        console.log('Array 2:', array2d[1])
+
+        console.log('Primer valor de Array2:', array2d[1][0])
+
+        console.log('----- iteración -----')
+
+        let sumatorio = 0
+        array2d.forEach(elm => {
+            elm.forEach(elm2 => sumatorio += elm2)
+        })
+
+        console.log('El total de edades es:', sumatorio)
+
+        */
+
+
+        const classes = [
+            [
+                {
+                    firstName: "Tomas",
+                    lastName: "Bechtelar",
+                    age: 22
+                }, {
+                    firstName: "Nico",
+                    lastName: "Schamberger",
+                    age: 26
+                }, {
+                    firstName: "Ashleigh",
+                    lastName: "Kutch",
+                    age: 29
+                }, {
+                    firstName: "Lulu",
+                    lastName: "Considine",
+                    age: 20
+                }, {
+                    firstName: "Garland",
+                    lastName: "Waelchi",
+                    age: 21
+                }
+            ],
+            [
+                {
+                    firstName: "Charlie",
+                    lastName: "Rolfson",
+                    age: 23
+                }, {
+                    firstName: "Austin",
+                    lastName: "Schowalter",
+                    age: 26
+                }, {
+                    firstName: "Emie",
+                    lastName: "Franecki",
+                    age: 29
+                }, {
+                    firstName: "Okey",
+                    lastName: "Runte",
+                    age: 18
+                }, {
+                    firstName: "Jameson",
+                    lastName: "Jakubowski",
+                    age: 22
+                }
+            ],
+            [
+                {
+                    firstName: "Antwan",
+                    lastName: "Marquardt",
+                    age: 22
+                }, {
+                    firstName: "Eugenia",
+                    lastName: "Nienow",
+                    age: 23
+                }, {
+                    firstName: "Keely",
+                    lastName: "Hagenes",
+                    age: 29
+                }, {
+                    firstName: "Jazmin",
+                    lastName: "Aufderhar",
+                    age: 29
+                }, {
+                    firstName: "Stanley",
+                    lastName: "Hand",
+                    age: 22
+                }
+            ]
+        ]
+
+        // console.log(classes[1][3].lastName)
+
+
+
+        let studentsList = ""
+
+        classes.forEach(eachClass => {
+            eachClass.forEach(eachStudent => {
+                studentsList += `<li>${eachStudent.firstName} ${eachStudent.lastName}.</li>`
+            })
+        })
+
+        document.querySelector('ul').innerHTML = studentsList
+
+    </script>
+</body>
+
+</html>
